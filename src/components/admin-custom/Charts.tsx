@@ -37,11 +37,18 @@ export default function Charts() {
     labels,
     datasets: [
       {
-        fill: true,
+        label: "Dataset 1",
+        data: labels.map(() => Math.floor(Math.random() * 1000)),
+        borderColor: "rgb(255, 99, 132)",
+        backgroundColor: "#FFFFFF",
+        yAxisID: "y",
+      },
+      {
         label: "Dataset 2",
-        data: labels.map(() => Math.random() * 1000),
+        data: labels.map(() => Math.floor(Math.random() * 1000)),
         borderColor: "rgb(53, 162, 235)",
-        backgroundColor: "rgba(53, 162, 235, 0.5)",
+        backgroundColor: "#FFFFFF",
+        yAxisID: "y1",
       },
     ],
   };
@@ -49,6 +56,20 @@ export default function Charts() {
     <Line
       options={{
         responsive: true,
+        scales: {
+          y: {
+            type: "linear" as const,
+            display: true,
+            position: "left" as const,
+          },
+          y1: {
+            type: "linear" as const,
+            display: false,
+            grid: {
+              drawOnChartArea: false,
+            },
+          },
+        },
       }}
       data={data}
     />

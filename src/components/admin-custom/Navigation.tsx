@@ -10,8 +10,9 @@ export default function Navigation() {
         {AdminNavigationData.map((item: any, index: number) => (
           <Link href={item.url} key={index} passHref legacyBehavior>
             <Button
-              variant="outline"
-              className="w-full flex justify-start gap-4 py-6 hover:bg-slate-300"
+              variant="ghost"
+              size={"sm"}
+              className="w-full flex justify-start gap-4 py-6 hover:bg-slate-300 dark:hover:bg-slate-800"
             >
               {item.icon}
               {item.name}

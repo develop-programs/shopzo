@@ -15,8 +15,14 @@ export default function DashboardCards({ data }: { data: any }) {
     }).format(data);
     return formattedValue;
   }
+
   return (
-    <div className="w-full border border-slate-300 rounded-md p-3 space-y-4">
+    <div
+      className="w-full border border-slate-300 rounded-xl p-3 space-y-4"
+      style={{
+        boxShadow: "-1px 4px 4px 0px rgba(0, 0, 0, 0.25)",
+      }}
+    >
       <div className="flex justify-between">
         <span className="font-semibold">{data.title}</span>
         {data.icon}

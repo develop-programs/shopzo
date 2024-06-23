@@ -1,10 +1,10 @@
-import Charts from "@/components/admin-custom/Charts";
 import DashboardCards from "@/components/admin-custom/Dashboard-Cards";
+import DataOnCharts from "@/components/admin-custom/DataOnCharts";
 import Keys from "@/components/admin-custom/Keys";
 import Orders from "@/components/admin-custom/Orders";
 import Users from "@/components/admin-custom/Users";
 import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
 import React from "react";
 
 type data = {
@@ -98,35 +98,14 @@ const items: data[] = [
 export default function page() {
   return (
     <div className="grid grid-flow-row grid-cols-12 pt-6 px-6 gap-12">
-      <div className="col-span-6 space-y-8">
+      <div className="col-span-12 xl:col-span-6 space-y-8">
         <div className="w-full grid grid-flow-row grid-cols-4 gap-4">
           {items.map((item: data, index: number) => (
             <DashboardCards key={index} data={item} />
           ))}
         </div>
         <div className="w-full">
-          <Tabs defaultValue="monthly">
-            <TabsList>
-              <TabsTrigger
-                value="monthly"
-                className="data-[state=active]:bg-gradient-to-r from-sky-500 to-blue-500 data-[state=active]:text-white"
-              >
-                Monthly
-              </TabsTrigger>
-              <TabsTrigger
-                value="yearly"
-                className="data-[state=active]:bg-gradient-to-r from-sky-500 to-blue-500 data-[state=active]:text-white"
-              >
-                Yearly
-              </TabsTrigger>
-            </TabsList>
-            <TabsContent value="monthly" className="h-[38vh]">
-              <Charts />
-            </TabsContent>
-            <TabsContent value="yearly" className="h-[38vh]">
-              <Charts />
-            </TabsContent>
-          </Tabs>
+          <DataOnCharts />
         </div>
         <div className="space-y-4">
           <div className="flex justify-between items-center">
@@ -155,7 +134,7 @@ export default function page() {
           <Users />
         </div>
       </div>
-      <div className="col-span-6 space-y-8">
+      <div className="col-span-12 xl:col-span-6 space-y-8">
         <div className="space-y-4 max-h-[60vh]">
           <div className="flex items-center gap-4">
             <svg
